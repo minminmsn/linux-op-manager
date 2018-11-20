@@ -1,0 +1,76 @@
+﻿{% include "moban.html %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap softinstall </title>
+    <link rel="stylesheet" href="{{static_url("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+</head>
+
+<body>
+
+<div class="container">
+
+  <form name="remoete-form" action="" method="post">
+        <div class="input-group">
+          <span class="input-group-addon">输入minion</span>
+          <input name="minion"  type="text" class="form-control" placeholder="输入IP">
+        </div>
+  <br/>
+
+        <div >
+            <h4 class="text-left bg-info" >选择client</h4>
+		<select name="client">
+		  {% for cli in client %}
+		  <option value ="{{ cli }}">{{ cli }}</option>
+		  {% end %}
+		</select>
+        </div>
+  <br/>
+
+        <div >
+            <h4 class="text-left bg-info" >选择function</h4>
+		<select name="functions">
+		  {% for fun in functions %}
+		  <option value ="{{ fun }}">{{ fun }}</option>
+		  {% end %}
+		</select>
+        </div>
+  <br/>
+
+        <div class="input-group">
+          <span class="input-group-addon">输入arg1</span>
+          <input name="arg1"  type="text" class="form-control" placeholder="输入参数">
+        </div>
+  <br/>
+
+        <div>
+          <input class="btn btn-primary"  type="submit" name="submit" value="执行输出结果" class="button">
+        </div>
+
+  <br/>
+
+       <div>
+          <textarea  class="form-control" rows="9" cols="100" >{{ remotecmd }}</textarea>
+       </div>
+
+</form>
+
+</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ static_url("js/jquery.min.js") }}"></script>
+    <script src="{{ static_url("js/bootstrap.min.js") }}"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+
+</html>

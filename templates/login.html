@@ -1,0 +1,39 @@
+{% include "moban.html %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Login Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{ static_url("css/bootstrap.min.css") }}">
+                                                                                               
+  <link rel="stylesheet" href="{{ static_url("css/signin.css") }}">
+
+  <link rel="icon" href="{{ static_url("favicon.ico") }}">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+  <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+  <body>
+    <div class="container">
+    <form class="form-signin" role="form">
+      <h2 class="form-signin-heading">系统管理平台</h2>
+      <input type="text" class="form-control" name="username" placeholder="用户" required autofocus>
+      <input type="password" class="form-control" placeholder="密码" required>
+      <label class="checkbox">
+      <input type="checkbox" value="remember-me"> 记住我
+      </label>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+      </form>
+    </div> <!-- /container -->
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="{{ static_url("js/jquery.min.js") }}"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{{ static_url("js/bootstrap.min.js") }}"></script>
+
+  </body>
+</html>

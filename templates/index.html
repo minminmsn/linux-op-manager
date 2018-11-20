@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ static_url("favicon.ico") }}">
+    <title>Navbar Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ static_url("css/bootstrap.min.css") }}">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ static_url("css/navbar.css") }}">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../static/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-inverse" role="navigation">
+         <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">管理平台</a>
+            </div>
+       <div>
+        <ul class="nav navbar-nav">
+            <li><a href="/softinstall">软件部署</a></li>
+            <li><a href="/filecp">配置下发</a></li>
+            <li><a href="/minions">远程执行</a></li>
+            <li><a href="/jidstatus">状态查询</a></li>
+        </ul>
+    </div>
+        <ul class="nav navbar-nav navbar-right"> 
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li> 
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注销</a></li> 
+        </ul> 
+    </div>
+</nav>
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>LinuxOms平台说明</h1>
+        <p>该管理平台主要用于Linux系统软件部署，后续也可用于配置下发、远程管理等等。</p>
+        <p>软件部署请双击下面按钮。</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="/softinstall" role="button">软件部署 &raquo;</a>
+        </p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ static_url("js/jquery.min.js") }}"></script>
+    <script src="{{ static_url("js/bootstrap.min.js") }}"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

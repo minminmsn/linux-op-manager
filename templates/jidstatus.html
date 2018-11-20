@@ -1,0 +1,88 @@
+﻿{% include "moban.html %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap softinstall </title>
+    <link rel="stylesheet" href="{{static_url("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+</head>
+
+<body>
+
+<div class="container">
+
+<form name="form1" action="" method="post">
+
+        <div >
+            <h4 class="text-left bg-info" >选择minion</h4>
+                <select name="minion">
+                  {% for mion in minion %}
+                     <option value ="{{ mion }}">{{ mion }}</option>
+                  {% end %}
+                </select>
+        </div>
+   <br/>
+
+       <div>
+            <h4 class="text-left bg-info" >选择jid</h4>
+            <select name="jidstatu" multiple  onchange="updateorder()">
+		{% for ljid in jidstatu %}
+		  <option value ="{{ ljid }}">{{ ljid }}</option>
+		{% end %}
+	    </select>
+            <br/>
+            <br/>
+            <h4 class="text-left  bg-info" >选择的jid为</h4>
+            <textarea   rows="3" cols="36"  name="textarea1" ></textarea>
+      </div>
+   <br/>
+
+        <div>
+          <input class="btn btn-primary"  type="submit" name="submit" value="执行输出结果" class="button">
+        </div>
+
+  <br/>
+
+       <div>
+          <textarea  class="form-control" rows="9" cols="100" >{{ jidstatuoutput }}</textarea>
+       </div>
+
+  </form>
+
+</div>
+
+<script language="javascript">
+function updateorder()
+{
+ var orderstring="";
+ var n=document.form1.jidstatu.length;
+ for (i=0;i<n;++i)
+ {
+ if (document.form1.jidstatu.options[i].selected)
+ {
+  orderstring+=document.form1.jidstatu.options[i].value+"\n";
+ }
+ }
+ document.form1.textarea1.value=orderstring;
+}
+
+</script>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ static_url("js/jquery.min.js") }}"></script>
+    <script src="{{ static_url("js/bootstrap.min.js") }}"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+
+</html>

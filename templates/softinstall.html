@@ -1,0 +1,107 @@
+﻿{% include "moban.html %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap softinstall </title>
+    <link rel="stylesheet" href="{{static_url("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+</head>
+
+<body>
+
+<div class="container">
+
+  <form name="softform"  role="form" action="" method="post">
+
+  <div class="dropdown">
+    <button class="btn btn-info dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">选择客户端IP
+      <span class="caret"></span>
+    </button>
+    <select  multiple class="dropdown-menu" role="menu" aria-labelledby="menu1" size= "3" name="minion"   onchange="updateorder()">
+        {% for mion in minion %}
+           <option   value ="{{ mion }}">{{ mion }}</option>
+        {% end %}
+    </select>
+  </div>
+
+    <br/>
+    <br/>
+  <div>
+
+    <h4 class="text-left  bg-info" >选择的客户端为</h4>
+    <textarea   rows="3" cols="36"  name="textarea1" ></textarea>
+    <br/>
+
+    <h4 class="text-left  bg-info" >选择client模式</h4>
+    <select size= "3" cols="36"  name="client">
+    {% for cli in client %}
+        <option value ="{{ cli }}">{{ cli }}</option>
+    {% end %}
+    </select>
+  </div> 
+
+    <br/>
+
+  <div>
+    <h4 class="text-left bg-info" >选择部署软件</h4>
+          <label class="checkbox-inline"><input  type="checkbox" value="tengine.install" name="module">Tegine</label>
+          <label class="checkbox-inline" > <input  type="checkbox" value="php.install" name="module">PHP</label>
+          <label class="checkbox-inline"><input  type="checkbox" value="mysql.install" name="module">MySQL</label>
+          <label class="checkbox-inline"><input  type="checkbox" value="redis.install" name="module">Redis</label>
+          <label class="checkbox-inline"><input  type="checkbox" value="keeplived.install" name="module">Keeplived</label>
+          <label class="checkbox-inline"><input  type="checkbox" value="zabbix.init" name="module">Zabbix</label>
+          <label class="checkbox-inline"> <input  type="checkbox" value="init.init" name="module">初始化</label>
+  </div> 
+
+    <br/>
+
+  <div>
+    <input type="submit" class="btn btn-primary"  name="submit" value="执行输出结果" >
+  </div>
+
+   <br/>
+  <div>
+   <textarea  class="form-control" rows="6" cols="100" >{{ soft }}</textarea>
+  </div>
+
+  </form>
+
+</div>
+
+<script language="javascript">
+function updateorder()
+{
+ var orderstring="";
+ var n=document.softform.minion.length;
+ for (i=0;i<n;++i)
+ {
+ if (document.softform.minion.options[i].selected)
+ {
+  orderstring+=document.softform.minion.options[i].value+"\n";
+ }
+ }
+ document.softform.textarea1.value=orderstring;
+}
+</script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ static_url("js/jquery.min.js") }}"></script>
+    <script src="{{ static_url("js/bootstrap.min.js") }}"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+<script>
+//$(document).ready(function(){
+    $('#client').prop('selectedIndex', 0);
+//});
+</script>
+</body>
+
+</html>
