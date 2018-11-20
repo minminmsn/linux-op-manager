@@ -84,7 +84,7 @@ class RemoteSoftHandler(tornado.web.RequestHandler):
         #print clientiplist
             
 
-        #minion = ['172.21.1.17', '172.21.1.18',  '*']
+        #minion = ['192.168.188.17', '192.168.188.18',  '*']
         client = ['local_async', 'local', 'globe', 'wheel']
         return self.render("softinstall.html", soft="", client=client,minion=clientiplist)
 
@@ -105,7 +105,7 @@ class RemoteSoftHandler(tornado.web.RequestHandler):
         #print  self.get_argument(u'textarea1')
         print  moremion
 
-        #minion = ['172.21.1.17', '172.21.1.18',  '*']
+        #minion = ['192.168.188.17', '192.168.188.18',  '*']
         cli = self.get_argument(u'client')
         client = ['local_async', 'local', 'globe', 'wheel']
 
@@ -249,7 +249,7 @@ if __name__ == "__main__":
 
     app = tornado.web.Application([
         (r"/", IndexHandler),                  #首页
-	(r"/login", LoginHandler),             #登陆页面 
+	    (r"/login", LoginHandler),             #登陆页面 
         (r"/softinstall", RemoteSoftHandler),  #软件部署
         (r"/minions", RemoteMinionHandler),    #客户端管理
         (r"/filecp", RemoteFileHandler),       #配置下发

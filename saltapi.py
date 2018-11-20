@@ -6,9 +6,9 @@ import urllib2, urllib, json, re
 class saltAPI:
     def __init__(self):
         ssl._create_default_https_context = ssl._create_unverified_context
-        self.__url = 'https://124.250.36.224:8888'       #salt-api监控的地址和端口如:'https://124.250.36.224:8888'
+        self.__url =  'https://192.168.188.188:8888'       #salt-api监控的地址和端口如:'https://192.168.188.188:8888'
         self.__user =  'saltapi'             #salt-api用户名
-        self.__password = 'salt_123qazXSW'          #salt-api用户密码
+        self.__password = 'your_password'       #salt-api用户密码
         self.__token_id = self.salt_login()
  
     def salt_login(self):
@@ -44,7 +44,7 @@ class saltAPI:
 def main():
     #以下是用来测试saltAPI类的部分
     sapi = saltAPI()
-    params = {'client':'local', 'fun':'user.add', 'tgt':'172.21.1.*','arg1':'jack','arg2':'home=/home/jack/', 'arg3':'shell=/bin/bash'
+    params = {'client':'local', 'fun':'user.add', 'tgt':'192.168.1.*','arg1':'jack','arg2':'home=/home/jack/', 'arg3':'shell=/bin/bash'
 }
     #params = {'client': 'runner', 'fun': 'jobs.lookup_jid', 'jid': '20150827163231404925'}
     #params = {'client':'local', 'fun':'test.ping', 'tgt':'某台服务器的key'}
