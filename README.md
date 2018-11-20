@@ -16,13 +16,13 @@ bootstrap3
 ```
 ### 架构介绍
 #### 架构图
-Salt-api（用于Salt客户端与服务端沟通的媒介）
-      |
-Python（编程语言，需要选择Web框架）
-      |
-Tornado（比较简单容易实现的Web框架）
-      |
-Bootstrap3（用于前端界面设计）
+Salt-api（用于Salt客户端与服务端沟通的媒介）  
+      |  
+Python（编程语言，需要选择Web框架）  
+      |  
+Tornado（比较简单容易实现的Web框架）  
+      |  
+Bootstrap3（用于前端界面设计）  
 
 #### 效果图
 ![image](https://github.com/minminmsn/linux-op-manager/blob/master/static/linux-op-manager.jpg)
